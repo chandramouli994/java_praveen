@@ -1,0 +1,70 @@
+<?xml version=”1.0" encoding=”UTF-8"?>
+<settings xsi:schemaLocation=”http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns=”http://maven.apache.org/SETTINGS/1.1.0"
+xmlns:xsi=”http://www.w3.org/2001/XMLSchema-instance">
+<servers>
+<server>
+<id>central</id>
+<username>admin</username>
+<password>password</password>
+</server>
+<server>
+<id>releases</id>
+<username>admin</username>
+<password>password</password>
+</server>
+<server>
+<id>snapshots</id>
+<username>admin</username>
+<password>password</password>
+</server>
+</servers>
+<profiles>
+<profile>
+<repositories>
+<repository>
+<snapshots>
+<enabled>false</enabled>
+</snapshots>
+        <id>central</id>
+        <name>GUEST018-releases</name>
+        <url>http://localhost:8081/artifactory/releases</url>
+<releases>
+<enabled>true</enabled>
+</releases> 
+</repository>
+<repository>
+<id>snapshots</id>
+<snapshots>
+<enabled>true</enabled>
+</snapshots>
+        <id>central</id>
+        <name>GUEST018-releases</name>
+        <url>http://localhost:8081/artifactory/releases</url>
+<releases>
+<enabled>false</enabled>
+</releases>
+</repository>
+</repositories>
+<pluginRepositories>
+<pluginRepository>
+<snapshots>
+<enabled>false</enabled>
+</snapshots>
+        <id>central</id>
+        <name>GUEST018-releases</name>
+        <url>http://localhost:8081/artifactory/releases</url>
+</pluginRepository>
+<pluginRepository>
+<snapshots />
+        <id>central</id>
+        <name>GUEST018-releases</name>
+        <url>http://localhost:8081/artifactory/releases</url>
+</pluginRepository>
+</pluginRepositories>
+<id>artifactory</id>
+</profile>
+</profiles>
+<activeProfiles>
+<activeProfile>artifactory</activeProfile>
+</activeProfiles>
+</settings>
