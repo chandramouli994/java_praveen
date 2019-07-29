@@ -16,7 +16,7 @@ node {
       echo "Version : ${Version}"
         sh 'mvn -version'
       try{
-      sh 'mvn deploy'
+      sh 'mvn clean deploy -U -Dmaven.test.skip=true'
         currentBuild.result = 'SUCCESS'
     }
       catch(e){
