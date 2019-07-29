@@ -16,7 +16,7 @@ node {
       echo "Version : ${Version}"
         sh 'mvn -version'
       try{
-      sh 'mvn clean install'
+      sh 'mvn deploy'
         currentBuild.result = 'SUCCESS'
     }
       catch(e){
