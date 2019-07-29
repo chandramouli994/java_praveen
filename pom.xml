@@ -52,8 +52,13 @@
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-    <snapshotRepository>
+    <distributionManagement>  
+    <repository>
+        <id>central</id>
+        <name>GUEST018-releases</name>
+        <url>http://localhost:8081/artifactory/releases</url>
+    </repository>
+        <snapshotRepository>
         <id>snapshots</id>
         <name>GUEST018-snapshots</name>
         <url>http://localhost:8081/artifactory/snapshots</url>
