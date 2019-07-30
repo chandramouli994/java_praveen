@@ -4,16 +4,7 @@ xmlns:xsi=”http://www.w3.org/2001/XMLSchema-instance">
 <servers>
 <server>
 <id>central</id>
-<username>admin</username>
-<password>password</password>
-</server>
-<server>
-<id>releases</id>
-<username>admin</username>
-<password>password</password>
-</server>
-<server>
-<id>snapshots</id>
+<name>GUEST018-releases</name>
 <username>admin</username>
 <password>password</password>
 </server>
