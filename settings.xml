@@ -1,72 +1,64 @@
-<?xml version=”1.0" encoding=”UTF-8"?>
-<settings xsi:schemaLocation=”http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns=”http://maven.apache.org/SETTINGS/1.1.0"
-xmlns:xsi=”http://www.w3.org/2001/XMLSchema-instance">
-<servers>
-<server>
-<id>central</id>
-<name>GUEST018-releases</name>
-<username>admin</username>
-<password>password</password>
-</server>
-</servers>
-     <proxies>
-        <proxy>
-            <active>true</active>
-            <protocol>http</protocol>
-            <host>localhost</host>
-            <port>8081</port>
-            <!-- <username>proxyuser</username>
-            <password>somepassword</password>
-            <nonProxyHosts>*.yourdomain.com|*.yourOtherDomain.com</nonProxyHosts> -->
-        </proxy>
-    </proxies>
-<profiles>
-<profile>
-<repositories>
-<repository>
-<snapshots>
-<enabled>false</enabled>
-</snapshots>
-        <id>central</id>
-        <name>GUEST018-releases</name>
-        <url>http://localhost:8081/artifactory/releases</url>
-<releases>
-<enabled>true</enabled>
-</releases> 
-</repository>
-<repository>
-<id>snapshots</id>
-<snapshots>
-<enabled>true</enabled>
-</snapshots>
-        <id>central</id>
-        <name>GUEST018-releases</name>
-        <url>http://localhost:8081/artifactory/releases</url>
-<releases>
-<enabled>false</enabled>
-</releases>
-</repository>
-</repositories>
-<pluginRepositories>
-<pluginRepository>
-<snapshots>
-<enabled>false</enabled>
-</snapshots>
-        <id>central</id>
-        <name>GUEST018-releases</name>
-        <url>http://localhost:8081/artifactory/releases</url>
-</pluginRepository>
-<pluginRepository>
-<snapshots />
-        <id>central</id>
-        <name>GUEST018-releases</name>
-        <url>http://localhost:8081/artifactory/releases</url>
-</pluginRepository>
-</pluginRepositories>
-<id>artifactory</id>
-</profile>
-</profiles>
-<activeProfiles>
-<activeProfile>artifactory</activeProfile>
-</activeProfiles>
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <username>admin</username>
+      <password>password</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>admin</username>
+      <password>password</password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <mirrorOf>*</mirrorOf>
+      <name>remote-repos</name>
+      <url>http://localhost:8081/artifactory/remote-repos</url>
+      <id>remote-repos</id>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>http://localhost:8081/artifactory/libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>http://localhost:8081/artifactory/libs-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>plugins-release</name>
+          <url>http://localhost:8081/artifactory/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>plugins-snapshot</name>
+          <url>http://localhost:8081/artifactory/plugins-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
 </settings>
