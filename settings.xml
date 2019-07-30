@@ -9,6 +9,17 @@ xmlns:xsi=”http://www.w3.org/2001/XMLSchema-instance">
 <password>password</password>
 </server>
 </servers>
+     <proxies>
+        <proxy>
+            <active>true</active>
+            <protocol>http</protocol>
+            <host>localhost</host>
+            <port>8081</port>
+            <!-- <username>proxyuser</username>
+            <password>somepassword</password>
+            <nonProxyHosts>*.yourdomain.com|*.yourOtherDomain.com</nonProxyHosts> -->
+        </proxy>
+    </proxies>
 <profiles>
 <profile>
 <repositories>
