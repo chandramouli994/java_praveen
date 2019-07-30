@@ -56,12 +56,7 @@
     <repository>
         <id>central</id>
         <name>GUEST018-releases</name>
-        <url>http://localhost:8081/artifactory/releases</url>
+        <url>http://localhost:8081/artifactory/libs-release-local</url>
     </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>GUEST018-snapshots</name>
-        <url>http://localhost:8081/artifactory/releases</url>
-    </snapshotRepository>
 </distributionManagement>
 </project>
