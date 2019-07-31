@@ -16,8 +16,7 @@ node {
       echo "Version : ${Version}"
         sh 'mvn -version'
       try{
-         configFileProvider([configFile(fileId: 'UUID', variable: 'MAVEN_GLOBAL_SETTINGS')])
-      sh 'mvn clean -gs $MAVEN_GLOBAL_SETTINGS deploy -U -Dmaven.test.skip=true'
+      sh 'mvn clean deploy -U -Dmaven.test.skip=true'
         currentBuild.result = 'SUCCESS'
     }
       catch(e){
