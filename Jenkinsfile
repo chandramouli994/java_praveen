@@ -9,28 +9,11 @@ node {
    jdkHome = tool 'jdk'
       mvnHome = tool 'maven'
       ArtifactName = readMavenPom().getArtifactId()
-   Version = readMavenPom().getVersion()
-      echo "Code quality analysis : ${mvnHome}"
-      echo 'Build is completed successfully'
+      Version = readMavenPom().getVersion()
       echo "artifactId : ${ArtifactName}"
       echo "Version : ${Version}"
-        sh 'mvn -version'
-      try{
-      sh 'mvn clean deploy -U -Dmaven.test.skip=true'
-        currentBuild.result = 'SUCCESS'
-    }
-      catch(e){
-      currentBuild.result = 'FAILURE'
-                echo "ERROR: ${e}"
-            } finally {
-               emailNotification() 
-            }
+      sh 'mvn -version'
+      sh 'mvn clean package -U -Dmaven.test.skip=true'
+      echo 'Build is completed successfully'
    }
    }
-def emailNotification() {
-   emailext (
-      to: 'haridasuvenkatesh@gmail.com',
-      subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
-      body: "${BUILD_URL} has result ${currentBuild.currentResult}"
-     )
- }
