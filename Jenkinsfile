@@ -14,10 +14,11 @@ node {
       sh "docker build -t helloworldkube ."
     }
    
-    stage('Deploy Docker Image'){
+    stage('Deploy Docker Image to minikube'){
       
       // deploy docker image to nexus
 
       echo "Docker Image Tag Name helloworldkube"
+      sh "kubectl apply -f deployment-service.yml"
     }
    }
