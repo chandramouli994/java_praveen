@@ -12,6 +12,8 @@ node {
       // build docker image
       unstash 'targetfiles'
       sh "docker build -t helloworldkube ."
+      sh "docker login -u awsdocker789 -p Kumar@2568"
+      sh "docker push awsdocker789/helloworldkube:latest"
     }
    
     stage('Deploy Docker Image to minikube'){
