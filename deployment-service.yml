@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: helloworldkube
+        image: awsdocker789/helloworldkube
         ports:
         - containerPort: 5000
 ---
