@@ -11,7 +11,7 @@ node {
     stage('Build Docker Image') {
       // build docker image
       unstash 'targetfiles'
-      sh "docker build -t helloworldkube ."
+      sh "docker build -t awsdocker789/helloworldkube ."
       sh "docker login -u awsdocker789 -p Kumar@2568"
       sh "docker push awsdocker789/helloworldkube:latest"
     }
