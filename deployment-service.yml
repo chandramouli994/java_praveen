@@ -36,4 +36,4 @@ spec:
     targetPort: 5000
   selector:
     app: hello
-  type: LoadBalancer
+  type: NodePort
