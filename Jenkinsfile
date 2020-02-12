@@ -11,16 +11,17 @@ node {
     stage('Build Docker Image') {
       // build docker image
       unstash 'targetfiles'
-      sh "docker build -t awsdocker789/helloworldkube ."
+      sh "docker build -t awsdocker789/helloworldkube ."   
+    }
+       stage('Pushed Docker Image to Registry') {
+      // push docker image
       sh "docker login -u awsdocker789 -p Kumar@2568"
       sh "docker push awsdocker789/helloworldkube:latest"
-    }
-   
+    } 
     stage('Deploy Docker Image to minikube'){
-      
-      // deploy docker image to nexus
-
-      echo "Docker Image Tag Name helloworldkube"
+       // deploy docker image to Kubernetes
       sh "kubectl apply -f deployment-service.yml"
+      echo "Docker Image pushed to minikube"
+      echo "K8s apllication is up and running successfully"
     }
    }
