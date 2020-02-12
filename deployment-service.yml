@@ -26,14 +26,13 @@ metadata:
   namespace: default
   labels:
     app: hello
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: "true"
 spec:
   ports:
   - name: http
     port: 5000
     protocol: TCP
     targetPort: 5000
+    nodePort: 30303
   selector:
     app: hello
   type: NodePort
