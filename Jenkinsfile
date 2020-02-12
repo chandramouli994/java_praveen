@@ -2,7 +2,7 @@ node {
    stage('Checkout') { // for display purposes
       checkout scm
    }
-   stage('Build') {
+   stage('Build with maven') {
       sh 'mvn -version'
       sh 'mvn clean package -U -Dmaven.test.skip=true'
       stash includes: 'target/*.jar', name: 'targetfiles'
@@ -13,15 +13,15 @@ node {
       unstash 'targetfiles'
       sh "docker build -t awsdocker789/helloworldkube ."   
     }
-       stage('Pushed Docker Image to Registry') {
+       stage('Push Docker Image to Registry') {
       // push docker image
       sh "docker login -u awsdocker789 -p Kumar@2568"
       sh "docker push awsdocker789/helloworldkube:latest"
     } 
-    stage('Deploy Docker Image to minikube'){
+    stage('Deploy Docker Image to Kubernetes'){
        // deploy docker image to Kubernetes
       sh "kubectl apply -f deployment-service.yml"
-      echo "Docker Image pushed to minikube"
-      echo "K8s apllication is up and running successfully"
+      echo "Docker Image pushed to Kubernetes"
+      echo "K8s application is up and running successfully"
     }
    }
