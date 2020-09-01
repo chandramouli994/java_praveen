@@ -11,7 +11,5 @@ node {
    {
       sh "cp /root/.jenkins/workspace/Javapraveenbuild  /tmp/"
       echo "moved file successfully"
-      sh "/tmp/"
-      echo"done"
    }
 }
